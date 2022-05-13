@@ -10,9 +10,6 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     s.min = numberset[0];
     s.max = numberset[0];
 
-    printf("numberset %f and *numberset %f\n", &numberset, *numberset);
-
-
     for(count = 0; count < setlength; count++)
     {;
         s.average += numberset[count];
