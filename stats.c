@@ -10,7 +10,16 @@ struct Stats compute_statistics(const float* numberset, int setlength)
     s.min = numberset[0];
     s.max = numberset[0];
 
-    if(numberset != NULL)
+    if(setlength == 0)
+    {
+        s.average = NAN;
+        s.max = NAN;
+        s.min = NAN;
+    }
+        
+
+    
+    else
     {
         for(count = 0; count < setlength; count++)
         {
@@ -28,17 +37,9 @@ struct Stats compute_statistics(const float* numberset, int setlength)
         }
     
         s.average = s.average / setlength;
-
-
-        return s;
-    }
-    
-    else
-    {
-        printf("NAN");
     }
    
-    
+    return s;
     
 }
 
