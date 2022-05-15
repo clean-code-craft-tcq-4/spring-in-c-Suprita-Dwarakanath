@@ -1,6 +1,10 @@
 #include "stats.h"
+#include "alerters.h"
 #include <stdio.h>
 #include "math.h"
+
+int emailAlertCallCount = 0;
+int ledAlertCallCount = 0;
 
 struct Stats compute_statistics(const float* numberset, int setlength) 
 {
@@ -44,6 +48,20 @@ struct Stats compute_statistics(const float* numberset, int setlength)
 }
 
 
+void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
+{
+    int loopCount;
 
-int emailAlertCallCount = 0;
-int ledAlertCallCount = 0;
+
+     if (computedStats.max > maxThreshold)
+    {
+        for(loopCount = 0; loopCount < 2; loopCount++)
+        {
+            alerters[loopCount]();
+        }        
+    }
+
+    printf("Value of emailAlertCallCount is %d \n", emailAlertCallCount);
+    printf("Value of ledAlertCallCount is %d \n", emailAlertCallCount);
+}
+
