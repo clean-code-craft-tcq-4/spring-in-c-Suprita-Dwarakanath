@@ -27,7 +27,7 @@ TEST_CASE("reports average, minimum and maximum") {
     //REQUIRE(isnan(computedStats.min) == 1);
     //REQUIRE(isnan(computedStats.max) == 1);
     //Use https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
-}
+//}
 
 TEST_CASE("raises alerts when max is greater than threshold") {
     // create additional .c and .h files
