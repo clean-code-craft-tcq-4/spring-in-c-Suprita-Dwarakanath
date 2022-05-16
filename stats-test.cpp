@@ -50,3 +50,21 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     REQUIRE(emailAlertCallCount == 1);
     REQUIRE(ledAlertCallCount == 1);
 }
+
+TEST_CASE("does not raise alerts when max is lesser than threshold") {
+    // create additional .c and .h files
+    // containing the emailAlerter, ledAlerter functions
+    alerter_funcptr alerters[] = {emailAlerter, ledAlerter};
+
+    float numberset[] = {99.8, 34.2, 4.5};
+    int setlength = sizeof(numberset) / sizeof(numberset[0]);
+    Stats computedStats = compute_statistics(numberset, setlength);
+
+    const float maxThreshold = 2;
+    check_and_alert(maxThreshold, alerters, computedStats);
+
+    // need a way to check if both emailAlerter, ledAlerter were called
+    // you can define call-counters along with the functions, as shown below
+    REQUIRE(emailAlertCallCount == 0);
+    REQUIRE(ledAlertCallCount == 0);
+}
