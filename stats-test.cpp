@@ -60,7 +60,7 @@ TEST_CASE("does not raise alerts when max is lesser than threshold") {
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
     Stats computedStats = compute_statistics(numberset, setlength);
 
-    const float maxThreshold = 2;
+    const float maxThreshold = 200;
     check_and_alert(maxThreshold, alerters, computedStats);
 
     // need a way to check if both emailAlerter, ledAlerter were called
