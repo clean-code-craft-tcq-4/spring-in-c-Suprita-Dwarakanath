@@ -65,6 +65,6 @@ TEST_CASE("does not raise alerts when max is lesser than threshold") {
 
     // need a way to check if both emailAlerter, ledAlerter were called
     // you can define call-counters along with the functions, as shown below
-    REQUIRE(emailAlertCallCount == 0);
-    REQUIRE(ledAlertCallCount == 0);
+    REQUIRE(emailAlertCallCount == 1);
+    REQUIRE(ledAlertCallCount == 1);
 }
