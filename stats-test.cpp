@@ -18,7 +18,11 @@ TEST_CASE("reports average, minimum and maximum") {
 }
 
 TEST_CASE("average is NaN for empty array") {
-    Stats computedStats = compute_statistics(NULL, 0);
+    float emptySet = 0;
+    float *ptrEmpty;
+    ptrEmpty = &emptySet
+        
+    Stats computedStats = compute_statistics(ptrEmpty, 0);
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
     
